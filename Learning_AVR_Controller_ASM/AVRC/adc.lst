@@ -1,0 +1,51 @@
+   1               		.file	"adc.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	main
+  18               	main:
+  19               	.LFB2:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 80E6      		ldi r24,lo8(96)
+  25 0002 87B9      		out 39-32,r24
+  26               	.LM3:
+  27 0004 8FEF      		ldi r24,lo8(-1)
+  28 0006 8ABB      		out 58-32,r24
+  29               	.LM4:
+  30 0008 80EC      		ldi r24,lo8(-64)
+  31 000a 86B9      		out 38-32,r24
+  32               	.LM5:
+  33 000c 90EC      		ldi r25,lo8(-64)
+  34               	.L6:
+  35               	.LM6:
+  36 000e 349B      		sbis 38-32,4
+  37 0010 00C0      		rjmp .L6
+  38               	.LM7:
+  39 0012 85B1      		in r24,37-32
+  40               	.LM8:
+  41 0014 349A      		sbi 38-32,4
+  42               	.LM9:
+  43 0016 8BBB      		out 59-32,r24
+  44               	.LM10:
+  45 0018 96B9      		out 38-32,r25
+  46 001a 00C0      		rjmp .L6
+  47               	.LFE2:
+  73               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 adc.c
+C:\DOCUME~1\user\LOCALS~1\Temp/ccghSC6c.s:2      *ABS*:0000003f __SREG__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccghSC6c.s:3      *ABS*:0000003e __SP_H__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccghSC6c.s:4      *ABS*:0000003d __SP_L__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccghSC6c.s:5      *ABS*:00000034 __CCP__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccghSC6c.s:6      *ABS*:00000000 __tmp_reg__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccghSC6c.s:7      *ABS*:00000001 __zero_reg__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccghSC6c.s:18     .text:00000000 main
+
+NO UNDEFINED SYMBOLS

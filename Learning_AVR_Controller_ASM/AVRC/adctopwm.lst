@@ -1,0 +1,82 @@
+   1               		.file	"adctopwm.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	main
+  18               	main:
+  19               	.LFB6:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 8FEF      		ldi r24,lo8(-1)
+  25 0002 87BB      		out 55-32,r24
+  26               	.LM3:
+  27 0004 9FE6      		ldi r25,lo8(111)
+  28 0006 93BF      		out 83-32,r25
+  29               	.LM4:
+  30 0008 90E6      		ldi r25,lo8(96)
+  31 000a 97B9      		out 39-32,r25
+  32               	.LM5:
+  33 000c 87BB      		out 55-32,r24
+  34               	.LM6:
+  35 000e 90EC      		ldi r25,lo8(-64)
+  36               	.LBB12:
+  37               	.LBB13:
+  38               	.LBB14:
+  39               	.LBB15:
+  40               	.LM7:
+  41 0010 20E1      		ldi r18,lo8(10000)
+  42 0012 37E2      		ldi r19,hi8(10000)
+  43               	.LVL0:
+  44               	.L3:
+  45               	.LBE15:
+  46               	.LBE14:
+  47               	.LBE13:
+  48               	.LBE12:
+  49               	.LM8:
+  50 0014 96B9      		out 38-32,r25
+  51               	.L2:
+  52               	.LM9:
+  53 0016 349B      		sbis 38-32,4
+  54 0018 00C0      		rjmp .L2
+  55               	.LM10:
+  56 001a 85B1      		in r24,37-32
+  57               	.LM11:
+  58 001c 349A      		sbi 38-32,4
+  59               	.LBB19:
+  60               	.LBB18:
+  61               	.LBB17:
+  62               	.LBB16:
+  63               	.LM12:
+  64 001e F901      		movw r30,r18
+  65               	/* #APP */
+  66               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+  67 0020 3197      		1: sbiw r30,1
+  68 0022 01F4      		brne 1b
+  69               	 ;  0 "" 2
+  70               	/* #NOAPP */
+  71               	.LBE16:
+  72               	.LBE17:
+  73               	.LBE18:
+  74               	.LBE19:
+  75               	.LM13:
+  76 0024 81BF      		out 81-32,r24
+  77 0026 00C0      		rjmp .L3
+  78               	.LFE6:
+ 104               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 adctopwm.c
+C:\DOCUME~1\user\LOCALS~1\Temp/ccNElfty.s:2      *ABS*:0000003f __SREG__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccNElfty.s:3      *ABS*:0000003e __SP_H__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccNElfty.s:4      *ABS*:0000003d __SP_L__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccNElfty.s:5      *ABS*:00000034 __CCP__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccNElfty.s:6      *ABS*:00000000 __tmp_reg__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccNElfty.s:7      *ABS*:00000001 __zero_reg__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccNElfty.s:18     .text:00000000 main
+
+NO UNDEFINED SYMBOLS

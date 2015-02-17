@@ -1,0 +1,51 @@
+   1               		.file	"rxtx.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	main
+  18               	main:
+  19               	.LFB6:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 88E1      		ldi r24,lo8(24)
+  25 0002 8AB9      		out 42-32,r24
+  26               	.LM3:
+  27 0004 89E1      		ldi r24,lo8(25)
+  28 0006 89B9      		out 41-32,r24
+  29               	.LVL0:
+  30               	.L8:
+  31               	.LM4:
+  32 0008 5F9B      		sbis 43-32,7
+  33 000a 00C0      		rjmp .L8
+  34               	.LM5:
+  35 000c 5F9A      		sbi 43-32,7
+  36               	.LM6:
+  37 000e 8CB1      		in r24,44-32
+  38               	.LM7:
+  39 0010 8CB9      		out 44-32,r24
+  40               	.L3:
+  41               	.LM8:
+  42 0012 5E9B      		sbis 43-32,6
+  43 0014 00C0      		rjmp .L3
+  44               	.LM9:
+  45 0016 5E9A      		sbi 43-32,6
+  46 0018 00C0      		rjmp .L8
+  47               	.LFE6:
+  73               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 rxtx.c
+C:\DOCUME~1\user\LOCALS~1\Temp/ccFlWvke.s:2      *ABS*:0000003f __SREG__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccFlWvke.s:3      *ABS*:0000003e __SP_H__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccFlWvke.s:4      *ABS*:0000003d __SP_L__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccFlWvke.s:5      *ABS*:00000034 __CCP__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccFlWvke.s:6      *ABS*:00000000 __tmp_reg__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccFlWvke.s:7      *ABS*:00000001 __zero_reg__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccFlWvke.s:18     .text:00000000 main
+
+NO UNDEFINED SYMBOLS

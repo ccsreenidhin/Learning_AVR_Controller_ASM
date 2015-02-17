@@ -1,0 +1,87 @@
+   1               		.file	"TIMER0INT.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	__vector_16
+  18               	__vector_16:
+  19               	.LFB2:
+  20               	.LM1:
+  21 0000 1F92      		push __zero_reg__
+  22 0002 0F92      		push r0
+  23 0004 0FB6      		in r0,__SREG__
+  24 0006 0F92      		push r0
+  25 0008 1124      		clr __zero_reg__
+  26 000a 8F93      		push r24
+  27 000c 9F93      		push r25
+  28               	/* prologue: Signal */
+  29               	/* frame size = 0 */
+  30               	.LM2:
+  31 000e 8091 0000 		lds r24,a
+  32 0012 9091 0000 		lds r25,(a)+1
+  33 0016 8095      		com r24
+  34 0018 9095      		com r25
+  35 001a 9093 0000 		sts (a)+1,r25
+  36 001e 8093 0000 		sts a,r24
+  37               	.LM3:
+  38 0022 8BBB      		out 59-32,r24
+  39               	.LM4:
+  40 0024 86B7      		in r24,86-32
+  41 0026 8160      		ori r24,lo8(1)
+  42 0028 86BF      		out 86-32,r24
+  43               	/* epilogue start */
+  44               	.LM5:
+  45 002a 9F91      		pop r25
+  46 002c 8F91      		pop r24
+  47 002e 0F90      		pop r0
+  48 0030 0FBE      		out __SREG__,r0
+  49 0032 0F90      		pop r0
+  50 0034 1F90      		pop __zero_reg__
+  51 0036 1895      		reti
+  52               	.LFE2:
+  54               	.global	main
+  56               	main:
+  57               	.LFB3:
+  58               	.LM6:
+  59               	/* prologue: function */
+  60               	/* frame size = 0 */
+  61               	.LM7:
+  62 0038 8FEF      		ldi r24,lo8(-1)
+  63 003a 8ABB      		out 58-32,r24
+  64               	.LM8:
+  65 003c 81E0      		ldi r24,lo8(1)
+  66 003e 83BF      		out 83-32,r24
+  67               	.LM9:
+  68 0040 87BF      		out 87-32,r24
+  69               	.LM10:
+  70               	/* #APP */
+  71               	 ;  19 "TIMER0INT.c" 1
+  72 0042 7894      		sei
+  73               	 ;  0 "" 2
+  74               	/* #NOAPP */
+  75               	.L4:
+  76 0044 00C0      		rjmp .L4
+  77               	.LFE3:
+  79               	.global	a
+  80               	.global	a
+  81               		.section .bss
+  84               	a:
+  85 0000 0000      		.skip 2,0
+ 118               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 TIMER0INT.c
+C:\DOCUME~1\user\LOCALS~1\Temp/ccZgPBEp.s:2      *ABS*:0000003f __SREG__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccZgPBEp.s:3      *ABS*:0000003e __SP_H__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccZgPBEp.s:4      *ABS*:0000003d __SP_L__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccZgPBEp.s:5      *ABS*:00000034 __CCP__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccZgPBEp.s:6      *ABS*:00000000 __tmp_reg__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccZgPBEp.s:7      *ABS*:00000001 __zero_reg__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccZgPBEp.s:18     .text:00000000 __vector_16
+C:\DOCUME~1\user\LOCALS~1\Temp/ccZgPBEp.s:84     .bss:00000000 a
+C:\DOCUME~1\user\LOCALS~1\Temp/ccZgPBEp.s:56     .text:00000038 main
+
+UNDEFINED SYMBOLS
+__do_clear_bss

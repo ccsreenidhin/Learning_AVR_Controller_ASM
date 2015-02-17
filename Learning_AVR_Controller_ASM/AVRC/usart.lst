@@ -1,0 +1,85 @@
+   1               		.file	"usart.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               		.data
+  17               	.LC0:
+  18 0000 796F 796F 		.string	"yoyo"
+  18      00
+  19               		.text
+  20               	.global	main
+  22               	main:
+  23               	.LFB6:
+  24               	.LM1:
+  25 0000 DF93      		push r29
+  26 0002 CF93      		push r28
+  27 0004 00D0      		rcall .
+  28 0006 00D0      		rcall .
+  29 0008 0F92      		push __tmp_reg__
+  30 000a CDB7      		in r28,__SP_L__
+  31 000c DEB7      		in r29,__SP_H__
+  32               	/* prologue: function */
+  33               	/* frame size = 5 */
+  34               	.LM2:
+  35 000e DE01      		movw r26,r28
+  36 0010 1196      		adiw r26,1
+  37 0012 E0E0      		ldi r30,lo8(.LC0)
+  38 0014 F0E0      		ldi r31,hi8(.LC0)
+  39 0016 85E0      		ldi r24,lo8(5)
+  40               	.L2:
+  41 0018 0190      		ld r0,Z+
+  42 001a 0D92      		st X+,r0
+  43 001c 8150      		subi r24,lo8(-(-1))
+  44 001e 01F4      		brne .L2
+  45               	.LM3:
+  46 0020 88E0      		ldi r24,lo8(8)
+  47 0022 8AB9      		out 42-32,r24
+  48               	.LM4:
+  49 0024 89E1      		ldi r24,lo8(25)
+  50 0026 89B9      		out 41-32,r24
+  51 0028 20E0      		ldi r18,lo8(0)
+  52 002a 30E0      		ldi r19,hi8(0)
+  53               	.LVL0:
+  54               	.LM5:
+  55 002c AE01      		movw r20,r28
+  56 002e 4F5F      		subi r20,lo8(-(1))
+  57 0030 5F4F      		sbci r21,hi8(-(1))
+  58               	.L10:
+  59 0032 FA01      		movw r30,r20
+  60 0034 E20F      		add r30,r18
+  61 0036 F31F      		adc r31,r19
+  62 0038 8081      		ld r24,Z
+  63 003a 8CB9      		out 44-32,r24
+  64               	.L3:
+  65               	.LM6:
+  66 003c 5E9B      		sbis 43-32,6
+  67 003e 00C0      		rjmp .L3
+  68               	.LM7:
+  69 0040 5E9A      		sbi 43-32,6
+  70               	.LM8:
+  71 0042 2F5F      		subi r18,lo8(-(1))
+  72 0044 3F4F      		sbci r19,hi8(-(1))
+  73 0046 2430      		cpi r18,4
+  74 0048 3105      		cpc r19,__zero_reg__
+  75 004a 04F0      		brlt .L10
+  76 004c 20E0      		ldi r18,lo8(0)
+  77 004e 30E0      		ldi r19,hi8(0)
+  78 0050 00C0      		rjmp .L10
+  79               	.LFE6:
+ 105               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 usart.c
+C:\DOCUME~1\user\LOCALS~1\Temp/ccvzUMyA.s:2      *ABS*:0000003f __SREG__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccvzUMyA.s:3      *ABS*:0000003e __SP_H__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccvzUMyA.s:4      *ABS*:0000003d __SP_L__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccvzUMyA.s:5      *ABS*:00000034 __CCP__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccvzUMyA.s:6      *ABS*:00000000 __tmp_reg__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccvzUMyA.s:7      *ABS*:00000001 __zero_reg__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccvzUMyA.s:22     .text:00000000 main
+
+UNDEFINED SYMBOLS
+__do_copy_data

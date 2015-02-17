@@ -1,0 +1,54 @@
+   1               		.file	"ctc.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	main
+  18               	main:
+  19               	.LFB2:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 8EE0      		ldi r24,lo8(14)
+  25 0002 83BF      		out 83-32,r24
+  26               	.LM3:
+  27 0004 8CE9      		ldi r24,lo8(-100)
+  28 0006 81BF      		out 81-32,r24
+  29               	.LM4:
+  30 0008 8FEF      		ldi r24,lo8(-1)
+  31 000a 8ABB      		out 58-32,r24
+  32 000c 20E0      		ldi r18,lo8(0)
+  33 000e 30E0      		ldi r19,hi8(0)
+  34               	.LVL0:
+  35               	.L6:
+  36               	.LM5:
+  37 0010 06B6      		in __tmp_reg__,86-32
+  38 0012 01FE      		sbrs __tmp_reg__,1
+  39 0014 00C0      		rjmp .L6
+  40               	.LM6:
+  41 0016 2095      		com r18
+  42 0018 3095      		com r19
+  43               	.LM7:
+  44 001a 2BBB      		out 59-32,r18
+  45               	.LM8:
+  46 001c 86B7      		in r24,86-32
+  47 001e 8260      		ori r24,lo8(2)
+  48 0020 86BF      		out 86-32,r24
+  49 0022 00C0      		rjmp .L6
+  50               	.LFE2:
+  76               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 ctc.c
+C:\DOCUME~1\user\LOCALS~1\Temp/ccGKl6st.s:2      *ABS*:0000003f __SREG__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccGKl6st.s:3      *ABS*:0000003e __SP_H__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccGKl6st.s:4      *ABS*:0000003d __SP_L__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccGKl6st.s:5      *ABS*:00000034 __CCP__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccGKl6st.s:6      *ABS*:00000000 __tmp_reg__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccGKl6st.s:7      *ABS*:00000001 __zero_reg__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccGKl6st.s:18     .text:00000000 main
+
+NO UNDEFINED SYMBOLS

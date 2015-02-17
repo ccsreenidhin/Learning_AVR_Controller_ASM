@@ -1,0 +1,81 @@
+   1               		.file	"LEVELADC.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	main
+  18               	main:
+  19               	.LFB2:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 8FEF      		ldi r24,lo8(-1)
+  25 0002 87BB      		out 55-32,r24
+  26               	.LM3:
+  27 0004 80E6      		ldi r24,lo8(96)
+  28 0006 87B9      		out 39-32,r24
+  29               	.LM4:
+  30 0008 80EC      		ldi r24,lo8(-64)
+  31 000a 86B9      		out 38-32,r24
+  32               	.LM5:
+  33 000c 70EC      		ldi r23,lo8(-64)
+  34               	.LM6:
+  35 000e 68E0      		ldi r22,lo8(8)
+  36               	.LM7:
+  37 0010 54E0      		ldi r21,lo8(4)
+  38               	.LM8:
+  39 0012 41E0      		ldi r20,lo8(1)
+  40               	.LVL0:
+  41               	.L9:
+  42               	.LM9:
+  43 0014 349B      		sbis 38-32,4
+  44 0016 00C0      		rjmp .L9
+  45               	.LM10:
+  46 0018 85B1      		in r24,37-32
+  47 001a 282F      		mov r18,r24
+  48 001c 30E0      		ldi r19,lo8(0)
+  49               	.LM11:
+  50 001e 2034      		cpi r18,64
+  51 0020 3105      		cpc r19,__zero_reg__
+  52 0022 04F4      		brge .L3
+  53               	.LM12:
+  54 0024 48BB      		out 56-32,r20
+  55 0026 00C0      		rjmp .L4
+  56               	.L3:
+  57               	.LM13:
+  58 0028 C901      		movw r24,r18
+  59 002a CF97      		sbiw r24,63
+  60 002c 8136      		cpi r24,97
+  61 002e 9105      		cpc r25,__zero_reg__
+  62 0030 00F4      		brsh .L5
+  63               	.LM14:
+  64 0032 58BB      		out 56-32,r21
+  65 0034 00C0      		rjmp .L4
+  66               	.L5:
+  67               	.LM15:
+  68 0036 203A      		cpi r18,160
+  69 0038 3105      		cpc r19,__zero_reg__
+  70 003a 04F0      		brlt .L4
+  71               	.LM16:
+  72 003c 68BB      		out 56-32,r22
+  73               	.L4:
+  74               	.LM17:
+  75 003e 76B9      		out 38-32,r23
+  76 0040 00C0      		rjmp .L9
+  77               	.LFE2:
+ 103               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 LEVELADC.c
+C:\DOCUME~1\user\LOCALS~1\Temp/ccnqj3gn.s:2      *ABS*:0000003f __SREG__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccnqj3gn.s:3      *ABS*:0000003e __SP_H__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccnqj3gn.s:4      *ABS*:0000003d __SP_L__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccnqj3gn.s:5      *ABS*:00000034 __CCP__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccnqj3gn.s:6      *ABS*:00000000 __tmp_reg__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccnqj3gn.s:7      *ABS*:00000001 __zero_reg__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccnqj3gn.s:18     .text:00000000 main
+
+NO UNDEFINED SYMBOLS

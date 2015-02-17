@@ -1,0 +1,77 @@
+   1               		.file	"rxint.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	__vector_18
+  18               	__vector_18:
+  19               	.LFB6:
+  20               	.LM1:
+  21 0000 1F92      		push __zero_reg__
+  22 0002 0F92      		push r0
+  23 0004 0FB6      		in r0,__SREG__
+  24 0006 0F92      		push r0
+  25 0008 1124      		clr __zero_reg__
+  26 000a 8F93      		push r24
+  27               	/* prologue: Signal */
+  28               	/* frame size = 0 */
+  29               	.LM2:
+  30 000c 8CB1      		in r24,44-32
+  31 000e 8093 0000 		sts a,r24
+  32               	.LM3:
+  33 0012 8CB9      		out 44-32,r24
+  34               	.L2:
+  35               	.LM4:
+  36 0014 5E9B      		sbis 43-32,6
+  37 0016 00C0      		rjmp .L2
+  38               	.LM5:
+  39 0018 5E9A      		sbi 43-32,6
+  40               	/* epilogue start */
+  41               	.LM6:
+  42 001a 8F91      		pop r24
+  43 001c 0F90      		pop r0
+  44 001e 0FBE      		out __SREG__,r0
+  45 0020 0F90      		pop r0
+  46 0022 1F90      		pop __zero_reg__
+  47 0024 1895      		reti
+  48               	.LFE6:
+  50               	.global	main
+  52               	main:
+  53               	.LFB7:
+  54               	.LM7:
+  55               	/* prologue: function */
+  56               	/* frame size = 0 */
+  57               	.LM8:
+  58 0026 88E9      		ldi r24,lo8(-104)
+  59 0028 8AB9      		out 42-32,r24
+  60               	.LM9:
+  61 002a 89E1      		ldi r24,lo8(25)
+  62 002c 89B9      		out 41-32,r24
+  63               	.LM10:
+  64               	/* #APP */
+  65               	 ;  19 "rxint.c" 1
+  66 002e 7894      		sei
+  67               	 ;  0 "" 2
+  68               	/* #NOAPP */
+  69               	.L6:
+  70 0030 00C0      		rjmp .L6
+  71               	.LFE7:
+  73               		.comm a,1,1
+ 106               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 rxint.c
+C:\DOCUME~1\user\LOCALS~1\Temp/ccOX9baz.s:2      *ABS*:0000003f __SREG__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccOX9baz.s:3      *ABS*:0000003e __SP_H__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccOX9baz.s:4      *ABS*:0000003d __SP_L__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccOX9baz.s:5      *ABS*:00000034 __CCP__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccOX9baz.s:6      *ABS*:00000000 __tmp_reg__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccOX9baz.s:7      *ABS*:00000001 __zero_reg__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccOX9baz.s:18     .text:00000000 __vector_18
+                            *COM*:00000001 a
+C:\DOCUME~1\user\LOCALS~1\Temp/ccOX9baz.s:52     .text:00000026 main
+
+UNDEFINED SYMBOLS
+__do_clear_bss

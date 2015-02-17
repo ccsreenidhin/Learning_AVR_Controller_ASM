@@ -1,0 +1,113 @@
+   1               		.file	"switch.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	main
+  18               	main:
+  19               	.LFB6:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 8FEF      		ldi r24,lo8(-1)
+  25 0002 87BB      		out 55-32,r24
+  26               	.LM3:
+  27 0004 1ABA      		out 58-32,__zero_reg__
+  28 0006 20E8      		ldi r18,lo8(128)
+  29 0008 30E0      		ldi r19,hi8(128)
+  30               	.LVL0:
+  31               	.LBB18:
+  32               	.LBB19:
+  33               	.LBB20:
+  34               	.LBB21:
+  35               	.LM4:
+  36 000a 40ED      		ldi r20,lo8(2000)
+  37 000c 57E0      		ldi r21,hi8(2000)
+  38               	.LBE21:
+  39               	.LBE20:
+  40               	.LBE19:
+  41               	.LBE18:
+  42               	.LM5:
+  43 000e 6FEF      		ldi r22,lo8(-1)
+  44               	.LVL1:
+  45               	.L10:
+  46               	.LM6:
+  47 0010 89B3      		in r24,57-32
+  48               	.LVL2:
+  49               	.LM7:
+  50 0012 8130      		cpi r24,lo8(1)
+  51 0014 01F0      		breq .L4
+  52 0016 8130      		cpi r24,lo8(1)
+  53 0018 00F0      		brlo .L3
+  54 001a 8230      		cpi r24,lo8(2)
+  55 001c 01F0      		breq .L5
+  56 001e 8330      		cpi r24,lo8(3)
+  57 0020 01F4      		brne .L10
+  58 0022 00C0      		rjmp .L11
+  59               	.L3:
+  60               	.LM8:
+  61 0024 18BA      		out 56-32,__zero_reg__
+  62 0026 00C0      		rjmp .L10
+  63               	.L4:
+  64               	.LM9:
+  65 0028 68BB      		out 56-32,r22
+  66 002a 00C0      		rjmp .L10
+  67               	.L5:
+  68               	.LM10:
+  69 002c 220F      		lsl r18
+  70 002e 331F      		rol r19
+  71               	.LM11:
+  72 0030 2115      		cp r18,__zero_reg__
+  73 0032 3105      		cpc r19,__zero_reg__
+  74 0034 01F4      		brne .L8
+  75 0036 21E0      		ldi r18,lo8(1)
+  76 0038 30E0      		ldi r19,hi8(1)
+  77 003a 00C0      		rjmp .L8
+  78               	.L11:
+  79               	.LM12:
+  80 003c 3595      		asr r19
+  81 003e 2795      		ror r18
+  82               	.LM13:
+  83 0040 2115      		cp r18,__zero_reg__
+  84 0042 3105      		cpc r19,__zero_reg__
+  85 0044 01F4      		brne .L8
+  86 0046 20E8      		ldi r18,lo8(128)
+  87 0048 30E0      		ldi r19,hi8(128)
+  88               	.L8:
+  89               	.LM14:
+  90 004a 28BB      		out 56-32,r18
+  91               	.LBB22:
+  92               	.LBB23:
+  93               	.LBB24:
+  94               	.LBB25:
+  95               	.LM15:
+  96 004c CA01      		movw r24,r20
+  97               	.LVL3:
+  98               	/* #APP */
+  99               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 100 004e 0197      		1: sbiw r24,1
+ 101 0050 01F4      		brne 1b
+ 102               	 ;  0 "" 2
+ 103               	/* #NOAPP */
+ 104 0052 00C0      		rjmp .L10
+ 105               	.LBE25:
+ 106               	.LBE24:
+ 107               	.LBE23:
+ 108               	.LBE22:
+ 109               	.LFE6:
+ 135               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 switch.c
+C:\DOCUME~1\user\LOCALS~1\Temp/ccUf6l2R.s:2      *ABS*:0000003f __SREG__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccUf6l2R.s:3      *ABS*:0000003e __SP_H__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccUf6l2R.s:4      *ABS*:0000003d __SP_L__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccUf6l2R.s:5      *ABS*:00000034 __CCP__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccUf6l2R.s:6      *ABS*:00000000 __tmp_reg__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccUf6l2R.s:7      *ABS*:00000001 __zero_reg__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccUf6l2R.s:18     .text:00000000 main
+
+NO UNDEFINED SYMBOLS

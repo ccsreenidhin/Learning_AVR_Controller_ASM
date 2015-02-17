@@ -1,0 +1,41 @@
+   1               		.file	"counter.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	main
+  18               	main:
+  19               	.LFB2:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 11BA      		out 49-32,__zero_reg__
+  25               	.LM3:
+  26 0002 8FEF      		ldi r24,lo8(-1)
+  27 0004 8ABB      		out 58-32,r24
+  28               	.LM4:
+  29 0006 86E0      		ldi r24,lo8(6)
+  30 0008 85BD      		out 69-32,r24
+  31               	.L2:
+  32               	.LM5:
+  33 000a 84B5      		in r24,68-32
+  34               	.LM6:
+  35 000c 8BBB      		out 59-32,r24
+  36 000e 00C0      		rjmp .L2
+  37               	.LFE2:
+  63               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 counter.c
+C:\DOCUME~1\user\LOCALS~1\Temp/ccqrcQYj.s:2      *ABS*:0000003f __SREG__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccqrcQYj.s:3      *ABS*:0000003e __SP_H__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccqrcQYj.s:4      *ABS*:0000003d __SP_L__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccqrcQYj.s:5      *ABS*:00000034 __CCP__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccqrcQYj.s:6      *ABS*:00000000 __tmp_reg__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccqrcQYj.s:7      *ABS*:00000001 __zero_reg__
+C:\DOCUME~1\user\LOCALS~1\Temp/ccqrcQYj.s:18     .text:00000000 main
+
+NO UNDEFINED SYMBOLS
